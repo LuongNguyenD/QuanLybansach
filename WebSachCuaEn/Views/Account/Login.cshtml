@@ -1,0 +1,32 @@
+﻿@model WebSachCuaEn.ViewModel.LoginVM
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Login</h2>
+@using (@Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    <div class="row w-25 mx-auto">
+        <div class="col-md-12">
+            @Html.LabelFor(us => us.UserName)
+            @Html.TextBoxFor(us => us.UserName, new { placeholder = "Ten dang nhap", @class = "form-control" })
+            @Html.ValidationMessageFor(us => us.UserName)
+        </div>
+        <div class="col-md-12">
+            @Html.LabelFor(us => us.Password)
+            @Html.PasswordFor(us => us.Password, new { placeholder = "Mat khau", @class = "form-control" })
+            @Html.ValidationMessageFor(us => us.Password)
+        </div>
+    </div>
+    <div class="row w-25 mx-auto">
+        <div class="col-md-12">
+            @Html.ValidationSummary()
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-success">Login</button>
+        </div>
+    </div>
+}

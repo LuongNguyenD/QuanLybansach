@@ -1,0 +1,41 @@
+﻿@model WebSachCuaEn.Identity.AppUser
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm("Create", "Users", new { area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        @Html.LabelFor(row => row.UserName, "UserName")
+        @Html.TextBoxFor(row => row.UserName, new { @class = "form-control" })
+        @*@Html.ValidationMessageFor(row => row.UserName)*@
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.PasswordHash, "Password")
+        @Html.TextBoxFor(row => row.PasswordHash, new { @class = "form-control" })
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.Email, "Email")
+        @Html.TextBoxFor(row => row.Email, new { @class = "form-control" })
+        @*@Html.ValidationMessageFor(row => row.Email)*@
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.PhoneNumber, "PhoneNumber")
+        @Html.TextBoxFor(row => row.PhoneNumber, new { @class = "form-control" })
+        @*@Html.ValidationMessageFor(row => row.PhoneNumber)*@
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.City, "City")
+        @Html.TextBoxFor(row => row.City, new { @class = "form-control" })
+
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.Address, "Address")
+        @Html.TextBoxFor(row => row.Address, new { @class = "form-control" })
+
+    </div>
+
+    <input type="submit" class="btn btn-danger" value="Create" />
+    <a href="~/Admin/Users/Index" class="btn btn-dark">Cancel</a>
+}

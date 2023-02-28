@@ -1,0 +1,58 @@
+﻿@model WebSachCuaEn.Models.SACH
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm("Edit", "Sach", new { area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="hidden" name="Masach" value="@Model.Masach" />
+    <div class="row">
+        @Html.LabelFor(row => row.Tensach, "Tên sách")
+        @Html.TextBoxFor(row => row.Tensach, new { @class = "form-control" })
+        @Html.ValidationMessageFor(row => row.Tensach)
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.Giaban, "Giá bán")
+        @Html.TextBoxFor(row => row.Giaban, new { @class = "form-control" })
+        @Html.ValidationMessageFor(row => row.Giaban)
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.Mota, "Mô tả")
+        @Html.TextBoxFor(row => row.Mota, new { @class = "form-control" })
+    </div>
+    <div class="row">
+        <div class="row">
+            @Html.LabelFor(row => row.Anhbia, "Ảnh bìa")
+            <input type="file"
+                   id="Anhbia"
+                   name="Anhbia"
+                   class="form-control"
+                   accept="images/*" />
+            @Html.ValidationMessageFor(row => row.Anhbia)
+        </div>
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.Ngaycapnhat, "Ngày cập nhật")
+        @Html.TextBoxFor(row => row.Ngaycapnhat, new { @class = "form-control", type = "date" })
+        @Html.ValidationMessageFor(row => row.Ngaycapnhat)
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.Soluongton, "Số lượng tồn")
+        @Html.TextBoxFor(row => row.Soluongton, new { @class = "form-control" })
+        @Html.ValidationMessageFor(row => row.Soluongton)
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.Loai.TenLoai, "Chủ đề")
+        @Html.DropDownListFor(row => row.MaLoai, new SelectList(ViewBag.loais, "MaLoai", "TenLoai"), "Vui lòng chọn chủ đề sách", new { @class = "form-control" })
+        @Html.ValidationMessageFor(row => row.MaLoai)
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.NHAXUATBAN.TenNXB, "Nhà xuất bản")
+        @Html.DropDownListFor(row => row.MaNXB, new SelectList(ViewBag.nxbs, "MaNXB", "TenNXB"), "Vui lòng chọn nhà xuất bản sách", new { @class = "form-control" })
+        @Html.ValidationMessageFor(row => row.MaNXB)
+    </div>
+    @Html.ValidationSummary()
+    <input type="submit" class="btn btn-danger" value="Save" />
+    <a href="~/Admin/Sach/Index" class="btn btn-dark">Cancel</a>
+}

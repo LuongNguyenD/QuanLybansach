@@ -1,0 +1,42 @@
+﻿@model List<WebSachCuaEn.Models.SACH>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<p>
+    @using (Html.BeginForm("Index", "Sach", FormMethod.Get))
+    {
+    <p>
+        Tìm kiếm: @Html.TextBox("searchString") --- Chủ đề: @Html.DropDownList("mLoai", new SelectList(ViewBag.data, "MaLoai", "TenLoai"), "--Chọn chủ đề--") <input type="submit" value="Tìm kiếm" />
+    </p>
+}
+    </p>
+    <h2 style="color:blue">Danh sách Sách</h2>
+
+    <div class="row row-cols-1 row-cols-md-5 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card">
+                    
+                        <img src="@Url.Content("~/Content/images/anhsp/"+ item.Anhbia)" class="card-img-top" alt="@item.Tensach" />
+                    
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(row => item.Tensach)</h5>
+                            <p class="card-text"> <small class="text-muted">@Html.DisplayFor(row => item.Giaban) VND</small></p>
+                            <h5 class="card-title">@Html.DisplayFor(row => item.Loai.TenLoai)</h5>
+                            <a href="~/Sach/Detail/@item.Masach">Xem chi tiết</a>
+                            <br />
+                            @if (item.Soluongton != 0 && item.Soluongton != null)
+                            {
+                                <a href="@Url.Action("ThemGiohang","GioHang", new {@iMasach=item.Masach,@strURL=Request.Url.ToString()})">Thêm vào giỏ hàng</a>
+                            }
+                        </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+

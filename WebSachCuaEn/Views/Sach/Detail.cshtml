@@ -1,0 +1,21 @@
+﻿@model WebSachCuaEn.Models.SACH
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Detail</h2>
+<h5>@Model.Tensach</h5>
+<br />
+<div class="col-12">
+    <center><img class="hover-img col-4" src="~/Content/images/anhsp/@Model.Anhbia" alt="@Model.Tensach"></center>
+    <br />
+</div>
+<div class="col-12">
+    <h6>Loại sách: @Model.Loai.TenLoai</h6>
+    <h6>Nhà Xuất Bản: @Model.NHAXUATBAN.TenNXB</h6>
+    <h6 class="danger">Giá bán: @String.Format("{0:#,##0}", @Model.Giaban) VNĐ</h6>
+    <h6>Số lượng tồn: @Model.Soluongton quyển</h6>
+    <h6>Mô tả: @Model.Mota</h6>
+    <br />
+</div>

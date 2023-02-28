@@ -1,0 +1,36 @@
+﻿@model WebSachCuaEn.Identity.AppUser
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+@using (Html.BeginForm("Delete", "Users", new { area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="hidden" name="Id" value="@Model.Id" />
+    <table class="table">
+        <tr>
+            <th>UserName :</th>
+            <td>@Html.DisplayFor(row => Model.UserName)</td>
+        </tr>
+        
+        <tr>
+            <th>Email :</th>
+            <td>@Html.DisplayFor(row => Model.Email)</td>
+        </tr>
+        <tr>
+            <th>PhoneNumber :</th>
+            <td>@Html.DisplayFor(row => Model.PhoneNumber)</td>
+        </tr>
+        <tr>
+            <th>Address:</th>
+            <td>@Html.DisplayFor(row => Model.Address)</td>
+        </tr>
+        <tr>
+            <th>City:</th>
+            <td>@Html.DisplayFor(row => Model.City)</td>
+        </tr>
+    </table>
+
+    <input type="submit" class="btn btn-danger" value="Delete" />
+    <a href="~/Admin/Users/Index" class="btn btn-dark">Cancel</a>
+}

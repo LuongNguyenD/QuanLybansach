@@ -1,0 +1,28 @@
+﻿@model List<WebSachCuaEn.Models.Loai>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Danh sách Chủ đề</h2>
+<table class="table">
+    <tr>
+        <th>Mã chủ đề : </th>
+        <th>Tên chủ đề:</th>
+        <th>Liên kết :</th>
+        <th>Danh sách Sách theo chủ đề</th>
+    </tr>
+    @foreach (var de in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(row => de.MaLoai)</td>
+            <td>@Html.DisplayFor(row => de.TenLoai)</td>
+            <td>@Html.ActionLink("Chi tiết", "Detail", new { id = de.MaLoai, controller = "LoaiSach", area = "Admin" })</td>
+            <td>@Html.ActionLink("Xem chi tiết", "LaySachTheoLoai", new { id = de.MaLoai, controller = "LoaiSach", area = "Admin" })</td>
+        </tr>
+    }
+
+</table>
+
+
+
+

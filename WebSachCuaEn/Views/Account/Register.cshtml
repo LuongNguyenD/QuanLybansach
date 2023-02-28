@@ -1,0 +1,61 @@
+﻿@model WebSachCuaEn.ViewModel.RegisterVM
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Register</h2>
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-6">
+            @Html.LabelFor(us => us.UserName)
+            @Html.TextBoxFor(us => us.UserName, new { placeholder = "Ten dang nhap", @class = "form-control" })
+            @Html.ValidationMessageFor(us => us.UserName)
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(us => us.Email)
+            @Html.TextBoxFor(us => us.Email, new { placeholder = "Email", @class = "form-control" })
+            @Html.ValidationMessageFor(us => us.Email)
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(us => us.Password)
+            @Html.PasswordFor(us => us.Password, new { placeholder = "Mat khau", @class = "form-control" })
+            @Html.ValidationMessageFor(us => us.Password)
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(us => us.ConfirmPassword)
+            @Html.PasswordFor(us => us.ConfirmPassword, new { placeholder = "Nhap lai mat khau", @class = "form-control" })
+            @Html.ValidationMessageFor(us => us.ConfirmPassword)
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(us => us.Gender)
+            @Html.TextBoxFor(us => us.Gender, new { placeholder = "Gioi tinh", @class = "form-control" })
+            @Html.ValidationMessageFor(us => us.Gender)
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(us => us.Address)
+            @Html.TextBoxFor(us => us.Address, new { placeholder = "Dia chi", @class = "form-control" })
+            @Html.ValidationMessageFor(us => us.Address)
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(us => us.Phone)
+            @Html.TextBoxFor(us => us.Phone, new { placeholder = "So dien thoai", @class = "form-control" })
+            @Html.ValidationMessageFor(us => us.Phone)
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(us => us.City)
+            @Html.TextBoxFor(us => us.City, new { placeholder = "Que quan", @class = "form-control" })
+            @Html.ValidationMessageFor(us => us.City)
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(us => us.DateBirth)
+            @Html.TextBoxFor(us => us.DateBirth, new { placeholder = "Ngay sinh", @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(us => us.DateBirth)
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Register</button>
+}
+
+

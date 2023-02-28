@@ -1,0 +1,36 @@
+﻿@model List<WebSachCuaEn.Models.SACH>
+@{
+    ViewBag.Title = "LaySachTheoLoai";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Danh sách Sách theo Chủ đề</h2>
+<table class="table">
+    <p>Mã chủ đề: @ViewBag.id</p>
+    <tr>
+        <th>Mã sách  </th>
+        <th>Tên sách </th>
+        <th>Giá bán  </th>
+        <th>Mô tả </th>
+        <th>Ảnh bìa </th>
+        <th>Ngày cập nhật</th>
+        <th>Số lượng tồn</th>
+        <th>Chủ đề</th>
+        <th>Nhà xuất bản</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(row => item.Masach)</td>
+            <td>@Html.DisplayFor(row => item.Tensach)</td>
+            <td>@Html.DisplayFor(row => item.Giaban)</td>
+            <td>@Html.DisplayFor(row => item.Mota)</td>
+            <td><img src="@Url.Content("~/images/anhsp/"+ item.Anhbia)" width="120px" /></td>
+            <td>@Html.DisplayFor(row => item.Ngaycapnhat)</td>
+            <td>@Html.DisplayFor(row => item.Soluongton)</td>
+            <td>@Html.DisplayFor(row => item.Loai.TenLoai)</td>
+            <td>@Html.DisplayFor(row => item.NHAXUATBAN.TenNXB)</td>
+        </tr>
+    }
+
+</table>

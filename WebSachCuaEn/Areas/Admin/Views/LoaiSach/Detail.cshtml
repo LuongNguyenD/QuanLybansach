@@ -1,0 +1,25 @@
+﻿@model WebSachCuaEn.Models.Loai
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Detail - Chi tiết Chủ đề</h2>
+<table class="table">
+    <tr>
+        <td>Mã chủ đề: </td>
+        <td>@Html.DisplayFor(row => Model.MaLoai)</td>
+    </tr>
+    <tr>
+        <td>Tên chủ đề : </td>
+        <td>@Html.DisplayFor(row => Model.TenLoai)</td>
+    </tr>
+    <tr>
+        <td>Số sách : </td>
+        <td>@ViewBag.count</td>
+    </tr>
+    <tr>
+        <td>@Html.ActionLink("Quay lại", "Index", new { controller = "LoaiSach" })</td>
+    </tr>
+</table>
+

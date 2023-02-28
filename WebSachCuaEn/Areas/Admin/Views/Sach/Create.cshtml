@@ -1,0 +1,65 @@
+﻿@model WebSachCuaEn.Models.SACH
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm("Create", "Sach", new { area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        @Html.LabelFor(row => row.Tensach, "Tên sách")
+        @Html.TextBoxFor(row => row.Tensach, new { @class = "form-control", placeholder = "Tên sách" })
+        @Html.ValidationMessageFor(row => row.Tensach)
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.Giaban, "Giá bán")
+        @Html.TextBoxFor(row => row.Giaban, new { @class = "form-control", placeholder = "Giá bán" })
+        @Html.ValidationMessageFor(row => row.Giaban)
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.Mota, "Mô tả")
+        @Html.TextBoxFor(row => row.Mota, new { @class = "form-control", placeholder = "Mô tả" })
+        @Html.ValidationMessageFor(row => row.Mota)
+    </div>
+    <br />
+    <div class="row">
+        @Html.LabelFor(row => row.Anhbia, "Ảnh bìa")
+        <input type="file"
+               id="Anhbia"
+               name="Anhbia"
+               class="form-control"
+               accept="images/*" />
+        @Html.ValidationMessageFor(row => row.Anhbia)
+    </div>
+    <br />
+    <div class="row">
+        @Html.LabelFor(row => row.Ngaycapnhat, "Ngày cập nhật")
+        @Html.TextBoxFor(row => row.Ngaycapnhat, new { @class = "form-control", placeholder = "Ngày cập nhật", type = "date" })
+        @Html.ValidationMessageFor(row => row.Ngaycapnhat)
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.Soluongton, "Số lượng tồn")
+        @Html.TextBoxFor(row => row.Soluongton, new { @class = "form-control", placeholder = "Số lượng tồn" })
+        @Html.ValidationMessageFor(row => row.Soluongton)
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.Loai.TenLoai, "Chủ đề")
+        @Html.DropDownListFor(row => row.MaLoai, new SelectList(ViewBag.loais, "MaLoai", "TenLoai"), "Vui lòng chọn chủ đề sách", new { @class = "form-control" })
+        @Html.ValidationMessageFor(row => row.Loai.TenLoai)
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.NHAXUATBAN.TenNXB, "Nhà xuất bản")
+        @Html.DropDownListFor(row => row.MaNXB, new SelectList(ViewBag.nxbs, "MaNXB", "TenNXB"), "Vui lòng chọn nhà xuất bản sách", new { @class = "form-control" })
+        @Html.ValidationMessageFor(row => row.NHAXUATBAN.TenNXB)
+
+    </div>
+    <div class="row">
+        @Html.LabelFor(row => row.TACGIA.TenTG, "Tác giả")
+        @Html.TextBoxFor(row => row.MaTG, new { @class = "form-control", placeholder = "Tác giả" })
+        @Html.ValidationMessageFor(row => row.TACGIA.TenTG)
+    </div>
+    @Html.ValidationSummary()
+    <input type="submit" class="btn btn-danger" value="Create" />
+    <a href="~/Admin/Sach/Index" class="btn btn-dark">Cancel</a>
+}
+

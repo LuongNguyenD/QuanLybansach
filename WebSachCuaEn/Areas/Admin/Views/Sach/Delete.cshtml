@@ -1,0 +1,54 @@
+﻿@model WebSachCuaEn.Models.SACH
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+@using (Html.BeginForm("Delete", "Sach", new { area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data", Model.Masach }))
+{
+
+    <input type="hidden" name="Id" value="@Model.Masach" />
+
+    <table class="table">
+        <tr>
+            <th>Tên sách :</th>
+            <td>@Html.DisplayFor(row => Model.Tensach)</td>
+        </tr>
+        <tr>
+            <th>Giá bán :</th>
+            <td>@Html.DisplayFor(row => Model.Giaban)</td>
+        </tr>
+        <tr>
+            <th>Mô tả :</th>
+            <td>@Html.DisplayFor(row => Model.Mota)</td>
+        </tr>
+        <tr>
+            <th>Ảnh bìa :</th>
+            <td>@Html.DisplayFor(row => Model.Anhbia)</td>
+        </tr>
+        <tr>
+            <th>Số lượng tồn :</th>
+            <td>@Html.DisplayFor(row => Model.Soluongton)</td>
+        </tr>
+        <tr>
+            <th>Ngày cập nhật :</th>
+            <td>@Html.DisplayFor(row => Model.Ngaycapnhat)</td>
+        </tr>
+        <tr>
+            <th>Chủ đề:</th>
+            <td>@Html.DisplayFor(row => Model.Loai.TenLoai)</td>
+        </tr>
+        <tr>
+            <th>Nhà xuất bản:</th>
+            <td>@Html.DisplayFor(row => Model.NHAXUATBAN.TenNXB)</td>
+        </tr>
+        <tr>
+            <th>Tác giả</th>
+            <td>@Html.DisplayFor(row => Model.TACGIA.TenTG)</td>
+        </tr>
+
+    </table>
+    <input type="submit" class="btn btn-danger" value="Delete" />
+    <a href="~/Admin/Sach/Index" class="btn btn-dark">Cancel</a>
+}
+

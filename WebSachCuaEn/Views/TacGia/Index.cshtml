@@ -1,0 +1,26 @@
+﻿@model List<WebSachCuaEn.Models.TACGIA>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2 style="color:blue">Danh sách Tác giả</h2>
+<table class="table">
+    <tr>
+        <th>Mã tác giả  </th>
+        <th>Tên tác giả </th>
+        <th>Địa chỉ</th>
+        <th>Tiểu sử</th>
+        <th>Điện thoại</th>
+        @*<th>Sửa</th>
+        <th>Xóa</th>*@
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(row => item.MaTG)</td>
+            <td>@Html.DisplayFor(row => item.TenTG)</td>
+            <td>@Html.DisplayFor(row => item.Diachi)</td>
+        </tr>
+    }
+</table>

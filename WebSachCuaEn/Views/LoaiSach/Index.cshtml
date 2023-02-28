@@ -1,0 +1,31 @@
+﻿@model List<WebSachCuaEn.Models.Loai>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<p>
+    @using (Html.BeginForm("LaySachTheoLoai", "LoaiSach", FormMethod.Get))
+    {
+    <p>
+          <a href="~/LoaiSach/LaySachTheoLoai"><input type="submit" value="Tìm kiếm" /></a>
+    </p>
+}
+    </p>
+    <h2>Danh sách Chủ đề</h2>
+
+    <table class="table">
+        <tr>
+            <th>Mã chủ đề : </th>
+            <th>Tên chủ đề:</th>
+        </tr>
+        @foreach (var de in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(row => de.MaLoai)</td>
+                <td>@Html.DisplayFor(row => de.TenLoai)</td>
+            </tr>
+        }
+
+    </table>
+
+
