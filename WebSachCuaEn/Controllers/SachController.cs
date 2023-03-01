@@ -16,16 +16,23 @@ namespace WebSachCuaEn.Controllers
         {
             SachDBContext db = new SachDBContext();
             var lst = db.SACHes.ToList();
+            var lst1 = db.SACHes.ToList();
             var categories = db.Loais.ToList();// danh sách Category
             ViewBag.data = categories;
             if(searchString == "" && mLoai == 0)
             {
                 List<SACH> saches = db.SACHes.ToList();
                 return View(saches);
+            }else if(searchString != "" && mLoai != 0)
+            {
+                lst = db.SACHes.Where(m => m.Tensach.Contains(searchString) || m.TACGIA.TenTG.Contains(searchString)).ToList();
+                lst1 = db.SACHes.Where(x => x.Loai.MaLoai == mLoai).ToList();
+                lst.AddRange(lst1);
+                return View(lst);
             }
             if (searchString != "")
             { 
-                lst = db.SACHes.Where(m => m.Tensach.Contains(searchString) || m.TACGIA.TenTG.Contains(searchString) || m.Loai.TenLoai.Contains(searchString)).ToList();
+                lst = db.SACHes.Where(m => m.Tensach.Contains(searchString) || m.TACGIA.TenTG.Contains(searchString)).ToList();
             }
             if (mLoai != 0)
             {
