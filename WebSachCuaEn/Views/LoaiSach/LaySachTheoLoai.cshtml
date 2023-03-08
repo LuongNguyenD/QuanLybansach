@@ -9,7 +9,7 @@
         @using (Html.BeginForm("LaySachTheoLoai", "LoaiSach", FormMethod.Get))
         {
         <p>
-            Chủ đề: @Html.DropDownList("id", new SelectList(ViewBag.data, "MaLoai", "TenLoai"),"--Chọn chủ đề--") <input type="submit" value="Tìm kiếm" />
+            Chủ đề: @Html.DropDownList("id", new SelectList(ViewBag.data, "MaLoai", "TenLoai"), "--Chọn chủ đề--" ) <input type="submit" value="Tìm kiếm" />
         </p>
     }
     </p>
